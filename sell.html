@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/media.min.css">
+    <title>Сподобані</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header header__like" id="promo__header">
+            <div class="header__logo"><a href="index.html"><img src="img/base/main__logo.png" alt=""></a></div>
+            <div class="header__control">
+                <a href="like.html" class="header__liked"> <img src="img/icon/heart.svg"alt=""></a>
+                <a href="authorization.html" class="header__account"> <img src="img/icon/account.svg"alt=""></a>
+                <button class="header__buy header__buy-border"><a href="sell.html">Продати техніку</a></button>
+            </div>
+        </header>
+    </div>
+    <div class="container">
+        <div class="selection__title sell__form-title">Додай свою пропозицію на AGRO STORE</div>
+        <form class="sell__form" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <div class="sell__first-block">
+                <div class="sell__form-group">
+                    <label for="image">Завантажте зображення:</label>
+                    <input type="file" id="image" name="image[]" required accept="image/*" class="sell__upload" multiple>
+                </div>
+            
+                <div class="sell__form-group">
+                    <label for="name">Введіть назву:</label>
+                    <input type="text" id="name" name="name" required placeholder="John Deer">
+                </div>
+            
+                <div class="sell__form-group">
+                    <label for="price">Введіть ціну:</label>
+                    <input type="text" id="price" name="price" required placeholder="56000$">
+                </div>
+            
+                <div class="sell__form-group">
+                    <label for="type">Виберіть тип техніки:</label>
+                    <select id="type" name="type" required>
+                        <option value="" disabled selected>Виберіть тип</option>
+                        <option value="Трактори">Трактори</option>
+                        <option value="Комбайни">Комбайни</option>
+                        <option value="Жатки">Жатки</option>
+                        <option value="Посівна та садильна техніка">Посівна та садильна техніка</option>
+                        <option value="Техніка для поливу та зрошування">Техніка для поливу та зрошування</option>
+                        <option value="Техніка для транспортування">Техніка для транспортування</option>
+                        <option value="Техніка для саду та городу">Техніка для саду та городу</option>
+                        <option value="Техніка для внесення добрив">Техніка для внесення добрив</option>
+                        <option value="Грунтообробна техніка">Грунтообробна техніка</option>
+                    </select>
+                </div>
+            
+                <div class="sell__form-group">
+                    <label for="year">Введіть рік випуску:</label>
+                    <input type="text" id="year" name="year" required placeholder="2014">
+                </div>
+            
+                <div class="sell__form-group">
+                    <label for="volume">Введіть об'єм двигуна:</label>
+                    <input type="text" id="volume" name="volume" required placeholder="13л">
+                </div>
+            
+                <div class="sell__form-group">
+                    <label for="status">Введіть стан:</label>
+                    <select id="status" name="status" required>
+                        <option value="" disabled selected>Виберіть стан</option>
+                        <option value="б/у">б/у</option>
+                        <option value="Новий">Новий</option>
+                    </select>
+                </div>
+            
+                <div class="sell__form-group">
+                    <label for="usage">Введіть пробіг:</label>
+                    <input type="text" id="usage" name="usage" required placeholder="160000км">
+                </div>
+            </div>
+            <div class="sell__second-block">
+                <div class="sell__form-group">
+                    <label for="username">Введіть ваше ім'я:</label>
+                    <input type="text" id="username" name="username" required placeholder="Роман">
+                </div>
+                
+                <div class="sell__form-group">
+                    <label for="city">Виберіть місто:</label>
+                    <input type="text" id="city" name="city" required placeholder="Наприклад, Львів" list="cityOptions">
+                </div>
+        
+                <div class="sell__form-group">
+                    <label for="number">Введіть номер телефону:</label>
+                    <input type="tel" id="number" name="number" required placeholder="0960985063">
+                </div>
+                <div class="sell__form-group">
+                    <label for="txtarea">Введіть ваш текст</label>
+                    <textarea id="txtarea" name="txtarea" required></textarea>
+                </div>
+            </div>
+            <div class="sell__form-btn-wrapper">
+                <input type="submit" value="Оформити" class="sell__form-btn">
+            </div>
+        </form>               
+    </div>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.11.9/js/bootstrap-validator.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
